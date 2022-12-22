@@ -1,36 +1,65 @@
-import {NavbarWrap,AllBox,JavascriptBox,CssBox,ReactBox,ReduxBox} from '../../styledComponenet/styled'
-import { useNavigate } from 'react-router-dom';
+import {
+  NavbarWrap,
+  AllBox,
+  JavascriptBox,
+  CssBox,
+  ReactBox,
+  ReduxBox,
+} from "../../styledComponenet/styled";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Navbar() {
-    const navigate = useNavigate();
-    return(
-        <NavbarWrap>
-            {/* All area */}
-        <AllBox onClick={()=>{
-            navigate("/AllPage")
-        }}>All</AllBox>
+  const navigate = useNavigate();
+  const params = useParams();
+  console.log(params);
+  return (
+    <NavbarWrap>
+      {/* All area */}
+      <AllBox
+        onClick={() => {
+          navigate("/All");
+        }}
+      >
+        All
+      </AllBox>
 
-            {/* Javascript area */}
-        <JavascriptBox onClick={()=>{
-            navigate("/JavascriptPage")
-        }}>Javascript</JavascriptBox>
+      {/* Javascript area */}
+      <JavascriptBox
+        onClick={() => {
+          navigate("/JavaScript");
+        }}
+      >
+        Javascript
+      </JavascriptBox>
 
-            {/* Css area */}
-        <CssBox onClick={()=>{
-            navigate("/CssPage")
-        }}>Css</CssBox>
+      {/* Css area */}
+      <CssBox
+        onClick={() => {
+          navigate("/Css");
+        }}
+      >
+        Css
+      </CssBox>
 
-            {/* React area */}
-        <ReactBox onClick={()=>{
-            navigate("/ReactPage")
-        }}>React</ReactBox>
+      {/* React area */}
+      <ReactBox
+        onClick={() => {
+          navigate("/React");
+        }}
+      >
+        React
+      </ReactBox>
 
-            {/* Redux area */}
-        <ReduxBox onClick={()=>{
-            navigate("/ReduxPage")
-        }}>Redux</ReduxBox>
-        </NavbarWrap>
-    );
-};
+      {/* Redux area */}
+      <ReduxBox
+        onClick={() => {
+          navigate("/Redux");
+        }}
+      >
+        Redux
+      </ReduxBox>
+    </NavbarWrap>
+  );
+}
 
 export default Navbar;

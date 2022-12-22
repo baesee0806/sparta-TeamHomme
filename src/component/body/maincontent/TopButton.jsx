@@ -1,23 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-
-const PositionContainer = styled.div`
-  position: fixed;
-  width: 95%;
-  bottom: 95px;
-  z-index: 1000;
-`;
-
-const TopBtn = styled.button`
-  position: absolute;
-  right: 0;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: transparent;
-  font-size: 40px;
-  opacity: 0.3;
-  cursor: pointer;
-`;
+import {
+  PositionContainer,
+  TopBtn,
+} from "../../../styledComponenet/mainContent";
 
 export default function TopButton() {
   // 버튼 상태

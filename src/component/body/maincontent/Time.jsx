@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { TimeSpan } from "../../../styledComponenet/mainContent";
 
 let now = new Date();
 let writeDay = new Date("2022-12-21T00:00:00");
@@ -30,14 +30,6 @@ if (difference < seconds) {
 } else {
   ResultTime = Math.trunc(difference / year) + "년 전";
 }
-
-const TimeSpan = styled.span`
-  display: flex;
-  justify-content: flex-end;
-  font-size: 12px;
-  color: #94969b;
-  vertical-align: top;
-`;
 
 export default function Time() {
   return (

@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+import {
+  MainContentWrap,
+  PageTitle,
+} from "../../../styledComponenet/mainContent";
 import axios from "axios";
 
 import ContentItems from "./ContentItems";
 import TopButton from "./TopButton";
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Page = styled.h1`
-  padding-right: 1200px;
-`;
 
 function MainContent() {
   const [lists, setLists] = useState([]);
@@ -22,7 +15,7 @@ function MainContent() {
 
   // 데이터를 가져와서 lists에 넣어 준다.
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3004/Item/");
+    const { data } = await axios.get("http://localhost:3010/Item/");
     setLists(data);
   };
 
@@ -33,15 +26,16 @@ function MainContent() {
 
   const list = lists.filter((item) => item.category === category);
 
+  console.log(category);
   return (
     <>
-      <Wrap>
-        <Page>{category === undefined ? "All" : category}</Page>
-        {category === undefined
+      <MainContentWrap>
+        {/* <PageTitle>{category === "All" ? "All" : category}</PageTitle> */}
+        {category === "All"
           ? lists.map((item) => <ContentItems key={item.id} item={item} />)
           : list.map((item) => <ContentItems key={item.id} item={item} />)}
         <TopButton />
-      </Wrap>
+      </MainContentWrap>
     </>
   );
 }
