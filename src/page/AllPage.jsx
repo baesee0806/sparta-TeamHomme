@@ -8,6 +8,8 @@ function AllPage () {
         <>
         <Header/>
         <Navbar/>
+        {/* content */}
+        
         </>
     ) 
 };
