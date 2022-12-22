@@ -1,8 +1,9 @@
 
-import Detail from "../page/Detail";
+
 
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Detail from "../page/Detail";
 import AllPage from "../page/AllPage";
 import CssPage from "../page/CssPage";
 import HomePage from "../page/HomePage";
@@ -16,8 +17,6 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
 
-     
-        <Route path="nav/:category" element={<All />} />
         <Route path="detail/:id" element={<Detail />} />
 
         <Route path="/" element={<HomePage/>} />
