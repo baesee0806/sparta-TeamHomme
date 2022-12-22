@@ -31,9 +31,6 @@ export default function TopButton() {
 
   // 클릭시 맨 위로 가는 이벤트
   const onClickTopHandler = () => {
-    // 현재 위치가 이미 최상단일 경우 return
-    if (!window.scrollY) return;
-
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -44,10 +41,12 @@ export default function TopButton() {
   useEffect(() => {
     const watch = () => {
       window.addEventListener("scroll", onShowTopButton);
+      console.log("watch");
     };
     watch();
     return () => {
       window.removeEventListener("scroll", onShowTopButton);
+      console.log("remove");
     };
   });
 

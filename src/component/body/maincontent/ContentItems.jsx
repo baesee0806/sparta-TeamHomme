@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import Time from "./Time";
@@ -45,9 +46,11 @@ const Figcaption = styled.figcaption`
   transition: 0.3s;
 `;
 
-export default function HommeList({ item }) {
+function ContentItems({ item }) {
+  const navigate = useNavigate();
+
   return (
-    <ListBox>
+    <ListBox onClick={() => navigate(`/detail/${item.id}`)}>
       <figure>
         <PageText>{item.category}</PageText>
         <h2>{item.title}</h2>
@@ -65,3 +68,5 @@ export default function HommeList({ item }) {
     </ListBox>
   );
 }
+
+export default ContentItems;

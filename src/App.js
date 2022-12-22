@@ -1,9 +1,9 @@
-import Body from "./component/body/Body";
+import Router from "./share/router";
 
 function App() {
   return (
     <div>
-      <Body />
+      <Router />
     </div>
   );
 }
