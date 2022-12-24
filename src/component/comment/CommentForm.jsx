@@ -3,7 +3,6 @@ import axios from "axios";
 import styled from "styled-components";
 import { StBtn } from "../../styledComponenet/styled";
 import { useDispatch, useSelector } from "react-redux";
-import { addComment, deleteComment } from "../../redux/modules/modules";
 import Modal from "../modal/modal";
 import { showModal } from "../../redux/modules/modal";
 
@@ -40,38 +39,37 @@ const StCmtCard = styled.div`
   border-bottom: 4px solid black;
   height: 60px;
 `;
-// const StPwInput = styled.input`
-//   width: 7rem;
-//   height: 2rem;
-
-//   margin-right: 0.5rem;
-// `;
 
 const CommentForm = () => {
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.modal);
 
+  //commet의 기본 form
   const [comment, setComment] = useState({
     contents: "",
     password: "",
     id: "",
   });
+
+  // server에서 가져온 data들을 저장.
   const [comments, setComments] = useState(null);
 
   const fetchComments = async () => {
+    //server에서 data들을 axios를 활용하여 가져옴
     const { data } = await axios.get("http://localhost:3001/comments");
     setComments(data);
   };
 
+  // 추가하기 버튼 눌렀을 때 발생하는 event handler
   const onSubmitHandler = async (comment) => {
     await axios.post("http://localhost:3001/comments", comment);
     fetchComments();
-    // dispatch(addComment({ ...comment }));
-    // setComment({
-    //   contents: "",
-    //   password: "",
-    //   id: "",
-    // });
+    // input에 입력되어 있는 값들을 onSubmitHandler가 실행된 후 비워주는 역할.
+    setComment({
+      contents: "",
+      password: "",
+      id: "",
+    });
   };
 
   const showModalHandler = (id) => {
@@ -131,21 +129,20 @@ const CommentForm = () => {
                 <StBtn
                   background="black"
                   color="white"
-                  onClick={() => showModalHandler(comment.id)}
+                  onClick={() => {
+                    return showModalHandler(comment.id);
+                  }}
                 >
                   삭제
                 </StBtn>
               </div>
             </StCmtCard>
           ))
+          // 가장 최근에 달린 comment를 위에 보여주기 위해 reverse사용
           .reverse()}
       </StCmtForm>
       {modal.show && (
-        <Modal
-          comments={comments}
-          setComments={setComments}
-          fetchComments={fetchComments}
-        />
+        <Modal fetchComments={fetchComments} comments={comments} />
       )}
     </>
   );
