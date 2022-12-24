@@ -14,11 +14,6 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Post() {
-  const [writer, setWriter] = useState('');
-  const [password, setPassword] = useState('');
-  const [title, setTitle] = useState('');
-  const [contents, setContents] = useState('');
-
   const [item, setItem] = useState({
     id: uuidv4(),
     title: '',
@@ -28,23 +23,18 @@ export default function Post() {
     password: '',
   });
 
-  const [items, setItems] = useState(null);
-
-  const fetchItems = async () => {
-    const { data } = await axios.get('http://localhost:3001/item');
-    setItems(data);
-  };
-
-  const onSubmit = async (e, item) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (writer.length > 5)
+    if (item.writer.length > 5)
       return alert('작성자 이름은 5글자 이내로 입력해주세요');
     // if (writer === '') return alert('작성자 이름을 입력해 주세요');
-    if (writer.length === 0) return alert('작성자 이름을 입력해 주세요');
-    if (title.length > 50) return alert('제목은 50자 이내로 입력해주세요.');
-    if (title.length === 0) return alert('제목을 입력해 주세요');
-    if (contents.length > 200) return alert('내용은 200자 이내로 입력해주세요');
-    if (contents.length === 0) return alert('내용을 입력해 주세요');
+    if (item.writer.length === 0) return alert('작성자 이름을 입력해 주세요');
+    if (item.title.length > 50)
+      return alert('제목은 50자 이내로 입력해주세요.');
+    if (item.title.length === 0) return alert('제목을 입력해 주세요');
+    if (item.content.length > 200)
+      return alert('내용은 200자 이내로 입력해주세요');
+    if (item.content.length === 0) return alert('내용을 입력해 주세요');
     alert('추가되었습니다.');
 
     await axios.post('http://localhost:3001/item', item);
@@ -61,13 +51,9 @@ export default function Post() {
     });
   };
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
-
   return (
     <>
-      <PostContainer onSubmit={(e) => onSubmit(e, item)}>
+      <PostContainer onSubmit={(e) => onSubmit(e)}>
         {/* 상단 wrapper */}
         <PostTopWrapper>
           <PostWriterWrapper>
@@ -77,9 +63,8 @@ export default function Post() {
               type='text'
               id='name'
               maxLength={6}
-              value={writer}
+              value={item.writer}
               onChange={(e) => {
-                setWriter(e.target.value);
                 setItem({ ...item, writer: e.target.value });
               }}
               placeholder='작성자의 이름을 입력해주세요. (5자 이내)'
@@ -91,9 +76,8 @@ export default function Post() {
             <PostInput
               type='password'
               id='password'
-              value={password}
+              value={item.password}
               onChange={(e) => {
-                setPassword(e.target.value);
                 setItem({ ...item, password: e.target.value });
               }}
               placeholder='비밀번호'
@@ -108,17 +92,17 @@ export default function Post() {
             type='text'
             id='title'
             maxLength={51}
-            value={title}
+            value={item.title}
             onChange={(e) => {
-              setTitle(e.target.value);
               setItem({ ...item, title: e.target.value });
             }}
             placeholder='제목을 입력해주세요.(50자 이내)'
           />
         </div>
         <div>
-          <PostLabel htmlFor='title'>카테고리</PostLabel>
+          <PostLabel htmlFor='category'>카테고리</PostLabel>
           <select
+            id='category'
             onChange={(e) => {
               setItem({ ...item, category: e.target.value });
             }}
@@ -136,9 +120,8 @@ export default function Post() {
             type='text'
             id='content'
             maxLength={201}
-            value={contents}
+            value={item.contents}
             onChange={(e) => {
-              setContents(e.target.value);
               setItem({ ...item, content: e.target.value });
             }}
             placeholder='내용을 입력해주세요. (200자 이내)'
