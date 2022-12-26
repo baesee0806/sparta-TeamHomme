@@ -4,7 +4,7 @@ import axios from "axios";
 
 import {
   MainContentWrap,
-  PageTitle,
+  // PageTitle,
 } from "../../../styledComponenet/mainContent";
 import { All, JavaScript, Css, ReacT, Redux } from "../../../share/constant";
 import ContentItems from "./ContentItems";

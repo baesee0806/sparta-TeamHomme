@@ -1,13 +1,18 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+
+import DetailContents from "../component/detailcontent/DetailContent";
+import Header from "../component/head/Header";
+import Navbar from "../component/head/Navbar";
 
 export default function Detail() {
-  const navigate = useNavigate();
-  const { id } = useParams();
+
   return (
     <div>
-      Detail
-      <button onClick={() => navigate(`/update/${id}`)}>수정페이지 이동</button>
+      <Header/>
+      <Navbar/>
+      
+      <DetailContents/>
+      
     </div>
   );
 }

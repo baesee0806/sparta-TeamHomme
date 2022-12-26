@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import {
   PostContainer,
   PostTopWrapper,
@@ -8,7 +8,7 @@ import {
   PostTextarea,
   PostButton,
   PostWriterWrapper,
-  PostPasswordWrapper,
+  // PostPasswordWrapper,
   PostLabel,
 } from "../../../styledComponenet/postStyled";
 import { useState, useEffect } from "react";
