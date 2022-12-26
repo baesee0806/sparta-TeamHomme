@@ -16,7 +16,7 @@ function MainContent() {
   const { category } = useParams();
 
   // 데이터를 가져와서 lists에 넣어 준다.
-  const fetchTodos = async () => {
+   const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:3010/Item/");
     setLists(data);
   };
