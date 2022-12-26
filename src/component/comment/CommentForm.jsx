@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { StBtn } from "../../styledComponenet/styled";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../modal/modal";
-import { showModal } from "../../redux/modules/modal";
+import ModifyModal from "../modal/ModifyModal";
+import { showDeleteModal } from "../../redux/modules/modal";
+import { showModifyModal } from "../../redux/modules/modifymodal";
 
 const StCmtForm = styled.div`
   display: flex;
@@ -43,6 +45,7 @@ const StCmtCard = styled.div`
 const CommentForm = () => {
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.modal);
+  const modifymodal = useSelector((state) => state.modifymodal);
 
   //commet의 기본 form
   const [comment, setComment] = useState({
@@ -72,8 +75,12 @@ const CommentForm = () => {
     });
   };
 
-  const showModalHandler = (id) => {
-    dispatch(showModal(id));
+  const showDeleteModalHandler = (id) => {
+    dispatch(showDeleteModal(id));
+  };
+
+  const showModifyModalHandler = (id) => {
+    dispatch(showModifyModal(id));
   };
 
   useEffect(() => {
@@ -123,14 +130,20 @@ const CommentForm = () => {
             <StCmtCard>
               <div key={comment.id}>{comment.contents}</div>
               <div>
-                <StBtn background="black" color="white">
+                <StBtn
+                  background="black"
+                  color="white"
+                  onClick={() => {
+                    return showModifyModalHandler(comment.id);
+                  }}
+                >
                   수정
                 </StBtn>
                 <StBtn
                   background="black"
                   color="white"
                   onClick={() => {
-                    return showModalHandler(comment.id);
+                    return showDeleteModalHandler(comment.id);
                   }}
                 >
                   삭제
@@ -143,6 +156,13 @@ const CommentForm = () => {
       </StCmtForm>
       {modal.show && (
         <Modal fetchComments={fetchComments} comments={comments} />
+      )}
+      {modifymodal.show && (
+        <ModifyModal
+          fetchComments={fetchComments}
+          comments={comments}
+          setComments={setComments}
+        />
       )}
     </>
   );

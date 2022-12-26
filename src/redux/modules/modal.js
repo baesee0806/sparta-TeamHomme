@@ -1,14 +1,14 @@
 const SHOW_MODAL = "SHOW_MODAL";
 const HIDE_MODAL = "HIDE_MODAL";
 
-export const showModal = (payload) => {
+export const showDeleteModal = (payload) => {
   return {
     type: SHOW_MODAL,
     payload,
   };
 };
 
-export const hideModal = (payload) => {
+export const hideDeleteModal = (payload) => {
   return {
     type: HIDE_MODAL,
     payload,
