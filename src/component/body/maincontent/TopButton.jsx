@@ -15,7 +15,8 @@ export default function TopButton() {
   };
 
   // 클릭시 맨 위로 가는 이벤트
-  const onClickTopHandler = () => {
+  const onClickTopHandler = (event) => {
+    console.log(event);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
