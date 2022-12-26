@@ -9,6 +9,7 @@ import {
   DetailBtn,
   DetailContentWrap,
   DetailContent,
+  DetailCategory,
 } from '../../styledComponenet/detailContent';
 
 
@@ -29,19 +30,20 @@ function DetailContents() {
         fetchItem();
       }, []);
       
-      const list = lists.filter(el=>el.id == id)[0]
-      
+      const list = lists.filter(el=>el.id == id);
+      console.log(list)
   return (
     <>
+    <DetailCategory>{"카테고리 > "+list[0]?.category}</DetailCategory>
       <DetailWrap>
-        <DetailTitle>{list.title}</DetailTitle>
+        <DetailTitle>{list[0]?.title}</DetailTitle>
         <DetailBtnWrap>
           <DetailBtn onClick={() => navigate(`/update/${id}`)}>수정</DetailBtn>
           <DetailBtn  onClick={() => { }} >삭제</DetailBtn>
         </DetailBtnWrap>
       </DetailWrap>
       <DetailContentWrap>
-        <DetailContent>{list.content}</DetailContent>
+        <DetailContent>{list[0]?.content}</DetailContent>
       </DetailContentWrap>
     </>
   );

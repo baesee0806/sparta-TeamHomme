@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const DetailCategory =styled.div`
+  margin: 30px 0 0 18px;
+  
+  `;
+
 
 
 export const DetailWrap = styled.div`
@@ -7,7 +12,6 @@ export const DetailWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  margin-top: 30px;
   border-bottom: 2px solid black;
 `;
 
