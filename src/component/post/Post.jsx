@@ -11,44 +11,50 @@ import {
 } from '../../styledComponenet/postStyled';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Select from 'react-select';
 import { v4 as uuidv4 } from 'uuid';
 
+const OPTIONS = [
+  { value: 'CSS', label: 'CSS' },
+  { value: 'JavaScript', label: 'JavaScript' },
+  { value: 'React', label: 'React' },
+  { value: 'Redux', label: 'Redux' },
+];
+
 export default function Post() {
-  const [item, setItem] = useState({
-    id: uuidv4(),
-    title: '',
-    content: '',
-    category: '',
-    writer: '',
-    password: '',
-  });
+  const [id, setId] = useState(uuidv4());
+  const [writer, setWriter] = useState('');
+  const [password, setPassword] = useState('');
+  const [title, setTitle] = useState('');
+  const [contents, setContents] = useState('');
+  const [category, setCategory] = useState('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (item.writer.length > 5)
+    if (writer.length > 5)
       return alert('작성자 이름은 5글자 이내로 입력해주세요');
-    // if (writer === '') return alert('작성자 이름을 입력해 주세요');
-    if (item.writer.length === 0) return alert('작성자 이름을 입력해 주세요');
-    if (item.title.length > 50)
-      return alert('제목은 50자 이내로 입력해주세요.');
-    if (item.title.length === 0) return alert('제목을 입력해 주세요');
-    if (item.content.length > 200)
-      return alert('내용은 200자 이내로 입력해주세요');
-    if (item.content.length === 0) return alert('내용을 입력해 주세요');
-    alert('추가되었습니다.');
+    //if (writer === '') return alert ('작성자 이름을 입력해 주세요');
+    if (writer.length === 0) return alert('작성자 이름을 입력해 주세요');
+    if (title.length > 50) return alert('제목은 50자 이내로 입력해주세요.');
+    if (title.length === 0) return alert('제목을 입력해 주세요');
+    if (contents.length > 200) return alert('내용은 200자 이내로 입력해주세요');
+    if (contents.length === 0) return alert('내용을 입력해 주세요');
 
-    await axios.post('http://localhost:3001/item', item);
+    const item = {
+      id: id,
+      writer: writer,
+      password: password,
+      title: password,
+      contents: contents,
+      category: category,
+    };
 
-    // fetchItems() -> 아이탬을 다시 불러온다 ... 데이터에 있는걸 다시 가져온다 하지만 포스트만 하면 ok이기 때문에 다시 가져올 필요가없다.
-    // setItems([...items, item]); -- 이녀석이 fetch랑 똑같은 기능이기때문에 필요없다 .
-
-    setItem({
-      writer: '',
-      password: '',
-      title: '',
-      content: '',
-      category: '',
-    });
+    try {
+      await axios.post('http://localhost:3001/item', item);
+      alert('추가 성공');
+    } catch (error) {
+      console.log(error, 'error');
+    }
   };
 
   return (
@@ -63,9 +69,9 @@ export default function Post() {
               type='text'
               id='name'
               maxLength={6}
-              value={item.writer}
+              value={writer}
               onChange={(e) => {
-                setItem({ ...item, writer: e.target.value });
+                setWriter(e.target.value);
               }}
               placeholder='작성자의 이름을 입력해주세요. (5자 이내)'
             />
@@ -76,9 +82,9 @@ export default function Post() {
             <PostInput
               type='password'
               id='password'
-              value={item.password}
+              value={password}
               onChange={(e) => {
-                setItem({ ...item, password: e.target.value });
+                setPassword(e.target.value);
               }}
               placeholder='비밀번호'
             />
@@ -92,26 +98,22 @@ export default function Post() {
             type='text'
             id='title'
             maxLength={51}
-            value={item.title}
+            value={title}
             onChange={(e) => {
-              setItem({ ...item, title: e.target.value });
+              setTitle(e.target.value);
             }}
             placeholder='제목을 입력해주세요.(50자 이내)'
           />
         </div>
         <div>
           <PostLabel htmlFor='category'>카테고리</PostLabel>
-          <select
+          <Select
             id='category'
+            options={OPTIONS}
             onChange={(e) => {
-              setItem({ ...item, category: e.target.value });
+              setCategory(e.value);
             }}
-          >
-            <option value='CSS'>CSS</option>
-            <option value='JavaScript'>JavaScript</option>
-            <option value='React'>React</option>
-            <option value='Redux'>Redux</option>
-          </select>
+          />
         </div>
         <div>
           <PostLabel htmlFor='content'>내용</PostLabel>
@@ -120,9 +122,9 @@ export default function Post() {
             type='text'
             id='content'
             maxLength={201}
-            value={item.contents}
+            value={contents}
             onChange={(e) => {
-              setItem({ ...item, content: e.target.value });
+              setContents(e.target.value);
             }}
             placeholder='내용을 입력해주세요. (200자 이내)'
           />

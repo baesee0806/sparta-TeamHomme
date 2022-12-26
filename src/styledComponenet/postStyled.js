@@ -37,7 +37,7 @@ export const PostLabel = styled.label`
 export const PostInput = styled.input`
   border-radius: 20px;
   padding: 20px;
-  border: 6px solid #8a8986;
+  border: 2px solid #999999;
   font-size: 24px;
   width: 100%;
 
@@ -49,7 +49,7 @@ export const PostInput = styled.input`
 export const PostTextarea = styled.textarea`
   border-radius: 20px;
   padding: 20px;
-  border: 6px solid #8a8986;
+  border: 2px solid #999999;
   font-size: 24px;
   width: 100%;
   height: 300px;
@@ -66,6 +66,6 @@ export const PostButton = styled.button`
   border-radius: 20px;
   font-size: 24px;
   padding: 24px;
-  border: 6px solid #8a8986;
+  border: 2px solid #999999;
   cursor: pointer;
 `;
