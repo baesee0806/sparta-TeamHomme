@@ -30,9 +30,9 @@ function HomePage() {
           <DetailBtn>삭제</DetailBtn>
         </DetailBtnWrap>
       </DetailWrap>
-      <div>
-        <div>{Lists.content}</div>
-      </div>
+      <DetailContentWrap>
+        <DetailContent>{Lists.content}</DetailContent>
+      </DetailContentWrap>
     </>
   );
 }
@@ -54,7 +54,7 @@ const DetailWrap = styled.div`
 const DetailTitle = styled.div`
   margin-left: 18px;
 
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
 `;
 
@@ -64,4 +64,15 @@ const DetailBtn = styled.button`
   background: inherit;
   border: none;
   cursor: pointer;
+`;
+
+const DetailContentWrap = styled.div`
+  margin: 20px 20px 20px 20px;
+  max-height: 1500px;
+  min-height: 800px;
+`;
+
+const DetailContent =styled.div`
+  font-size: 1.5rem;
+
 `;
