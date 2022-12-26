@@ -1,9 +1,9 @@
-import Post from './component/post/Post';
+import Router from './share/router';
 
 function App() {
   return (
     <>
-      <Post />
+      <Router />
     </>
   );
 }
