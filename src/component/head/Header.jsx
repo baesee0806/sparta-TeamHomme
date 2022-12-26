@@ -19,7 +19,7 @@ function Header() {
       </HeaderHomme>
       <HeaderNavigateBTN
         onClick={() => {
-          navigate("/");
+          navigate("/post");
         }}
       >
         글쓰기

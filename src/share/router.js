@@ -5,6 +5,9 @@ import Detail from "../page/Detail";
 // import CssPage from "../page/CssPage";
 import HomePage from "../page/HomePage";
 import JavascriptPage from "../page/JavascriptPage";
+import NotFound from "../page/NotFound";
+import Write from "../page/Write";
+import Update from "../page/Update";
 // import ReactPage from "../page/ReactPage";
 // import ReduxPage from "../page/ReduxPage";
 
@@ -19,6 +22,9 @@ const Router = () => {
         {/* <Route path="CssPage/:category" element={<CssPage />} />
         <Route path="ReactPage/:category" element={<ReactPage />} />
         <Route path="ReduxPage/:category" element={<ReduxPage />} /> */}
+        <Route path="notFound" element={<NotFound />} />
+        <Route path="/post" element={<Write />} />
+        <Route path="/update/:id" element={<Update />} />
       </Routes>
     </BrowserRouter>
   );

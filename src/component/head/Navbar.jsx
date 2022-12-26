@@ -6,18 +6,18 @@ import {
   ReactBox,
   ReduxBox,
 } from "../../styledComponenet/styled";
-import { useNavigate, useParams } from "react-router-dom";
+import { All, JavaScript, Css, ReacT, Redux } from "../../share/constant.js";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
-  const params = useParams();
-  console.log(params);
+
   return (
     <NavbarWrap>
       {/* All area */}
       <AllBox
         onClick={() => {
-          navigate("/All");
+          navigate(`/${All}`);
         }}
       >
         All
@@ -26,7 +26,7 @@ function Navbar() {
       {/* Javascript area */}
       <JavascriptBox
         onClick={() => {
-          navigate("/JavaScript");
+          navigate("/" + JavaScript);
         }}
       >
         Javascript
@@ -35,7 +35,7 @@ function Navbar() {
       {/* Css area */}
       <CssBox
         onClick={() => {
-          navigate("/Css");
+          navigate("/" + Css);
         }}
       >
         Css
@@ -44,7 +44,7 @@ function Navbar() {
       {/* React area */}
       <ReactBox
         onClick={() => {
-          navigate("/React");
+          navigate("/" + ReacT);
         }}
       >
         React
@@ -53,7 +53,7 @@ function Navbar() {
       {/* Redux area */}
       <ReduxBox
         onClick={() => {
-          navigate("/Redux");
+          navigate("/" + Redux);
         }}
       >
         Redux
