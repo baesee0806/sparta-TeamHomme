@@ -47,9 +47,9 @@ export default function Fix() {
     if (edit.title.length > 50)
       return alert("제목은 50자 이내로 입력해주세요.");
     if (edit.title.length === 0) return alert("제목을 입력해 주세요");
-    if (edit.content.length > 200)
+    if (edit.contents.length > 200)
       return alert("내용은 200자 이내로 입력해주세요");
-    if (edit.content.length === 0) return alert("내용을 입력해 주세요");
+    if (edit.contents.length === 0) return alert("내용을 입력해 주세요");
 
     alert("추가되었습니다.");
     await axios.patch(`http://localhost:3010/item/${data.id}`, data);
@@ -111,15 +111,15 @@ export default function Fix() {
           </select>
         </div>
         <div>
-          <PostLabel htmlFor="content">내용</PostLabel>
+          <PostLabel htmlFor="contents">내용</PostLabel>
           {/* 내용을 입력하는 Textarea */}
           <PostTextarea
             type="text"
-            id="content"
+            id="contents"
             maxLength={201}
-            value={data.content || ""}
+            value={data.contents || ""}
             onChange={(e) => {
-              setData({ ...data, content: e.target.value });
+              setData({ ...data, contents: e.target.value });
             }}
           />
         </div>

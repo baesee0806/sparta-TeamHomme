@@ -1,19 +1,16 @@
-import Body from '../component/body/Body';
-import Header from '../component/head/Header'
-import Navbar from '../component/head/Navbar'
+import Body from "../component/body/body";
+import Header from "../component/head/Header";
+import Navbar from "../component/head/Navbar";
 
+function HomePage() {
+  return (
+    <>
+      <Header />
+      <Navbar />
 
-
-function HomePage () {
-    return(
-        <>
-        <Header/>
-        <Navbar/>
-
-        <Body/>
-        </>
-    ) 
-};
-
+      <Body />
+    </>
+  );
+}
 
 export default HomePage;

@@ -1,22 +1,7 @@
 {
   "Item": [
     {
-      "id": "c5f1ef15-15c0-4d05-99dc-982b06752239",
-      "writer": "dd",
-      "password": "dd",
-      "title": "dd",
-      "contents": "dd",
-      "category": "JavaScript",
-      "time": "2022-12-27T01:32:14.460Z"
-    },
-    {
-      "id": "695acf95-5368-4c7e-a760-b940d58c4803",
-      "writer": "dtd",
-      "password": "tdtd",
-      "title": "tdtd",
-      "contents": "ddd",
-      "category": "React",
-      "time": "2022-12-27T01:33:23.268Z"
+
     }
   ]
 }
