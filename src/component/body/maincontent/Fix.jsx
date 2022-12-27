@@ -11,8 +11,16 @@ import {
   // PostPasswordWrapper,
   PostLabel,
 } from "../../../styledComponenet/postStyled";
+import Select from "react-select";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
+const OPTIONS = [
+  { value: "CSS", label: "CSS" },
+  { value: "JavaScript", label: "JavaScript" },
+  { value: "React", label: "React" },
+  { value: "Redux", label: "Redux" },
+];
 
 // Detail... 으로 된 부분은 수정해야된다.
 // Detail Page가 만들어지고 Detail에서 받아온 props나 useSelector을 이용해 받아온 값을 이용한다.
@@ -39,19 +47,19 @@ export default function Fix() {
   //   undefined 라서 처음에 렌더링이 안되고 에러가 뜬다.
   //     const detail = data.find((item) => item.id.toString() === param.id);
 
-  const onSubmit = async (e, edit) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (edit.writer.length > 5)
+    if (data.writer.length > 5)
       return alert("작성자 이름은 5글자 이내로 입력해주세요");
     // if (writer.length === 0) return alert("작성자 이름을 입력해 주세요");
-    if (edit.title.length > 50)
+    if (data.title.length > 50)
       return alert("제목은 50자 이내로 입력해주세요.");
-    if (edit.title.length === 0) return alert("제목을 입력해 주세요");
-    if (edit.contents.length > 200)
+    if (data.title.length === 0) return alert("제목을 입력해 주세요");
+    if (data.contents.length > 200)
       return alert("내용은 200자 이내로 입력해주세요");
-    if (edit.contents.length === 0) return alert("내용을 입력해 주세요");
+    if (data.contents.length === 0) return alert("내용을 입력해 주세요");
 
-    alert("추가되었습니다.");
+    alert("수정되었습니다.");
     await axios.patch(`http://localhost:3010/item/${data.id}`, data);
 
     // fetchItems() -> 아이탬을 다시 불러온다 ... 데이터에 있는걸 다시 가져온다 하지만 포스트만 하면 ok이기 때문에 다시 가져올 필요가없다.
@@ -96,19 +104,14 @@ export default function Fix() {
           />
         </div>
         <div>
-          <PostLabel htmlFor="title">카테고리</PostLabel>
-          <select
-            value={data.category}
+          <PostLabel htmlFor="category">카테고리</PostLabel>
+          <Select
+            id="category"
+            options={OPTIONS}
             onChange={(e) => {
-              setData({ ...data, category: e.target.value });
+              setData({ ...data, category: e.value });
             }}
-          >
-            <option value="choice">--선택--</option>
-            <option value="CSS">CSS</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="React">React</option>
-            <option value="Redux">Redux</option>
-          </select>
+          />
         </div>
         <div>
           <PostLabel htmlFor="contents">내용</PostLabel>

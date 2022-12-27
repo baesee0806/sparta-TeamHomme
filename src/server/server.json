@@ -32,8 +32,8 @@
       "writer": "ddd",
       "password": "11",
       "title": "11",
-      "contents": "ddd",
-      "category": "Redux",
+      "contents": "ddd씨발년",
+      "category": "JavaScript",
       "time": "2022-12-27T07:28:21.613Z"
     },
     {
@@ -80,6 +80,15 @@
       "contents": "없으면 빛원석한테 차이면 됨",
       "category": "JavaScript",
       "time": "2022-12-27T10:42:02.186Z"
+    },
+    {
+      "id": "c2b2aae3-08e8-4c46-ac77-7ae0fdda142f",
+      "writer": "안녕",
+      "password": "11",
+      "title": "안녕",
+      "contents": "안녕",
+      "category": "React",
+      "time": "2022-12-27T16:13:47.351Z"
     }
   ]
 }
