@@ -7,6 +7,7 @@ import Modal from "../modal/modal";
 import ModifyModal from "../modal/ModifyModal";
 import { showDeleteModal } from "../../redux/modules/modal";
 import { showModifyModal } from "../../redux/modules/modifymodal";
+import { useParams } from "react-router";
 
 const StCmtForm = styled.div`
   display: flex;
@@ -46,22 +47,27 @@ const CommentForm = () => {
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.modal);
   const modifymodal = useSelector((state) => state.modifymodal);
+  const param = useParams();
 
   //commet의 기본 form
   const [comment, setComment] = useState({
     contents: "",
     password: "",
     id: "",
+    Postid: param.id,
   });
 
   // server에서 가져온 data들을 저장.
-  const [comments, setComments] = useState(null);
+  const [comments, setComments] = useState([]);
 
   const fetchComments = async () => {
     //server에서 data들을 axios를 활용하여 가져옴
     const { data } = await axios.get("http://localhost:3001/comments");
-    setComments(data);
+    const detail = data.filter((item) => item.Postid === param.id);
+    setComments(detail);
+    console.log(detail);
   };
+  console.log(comments);
 
   // 추가하기 버튼 눌렀을 때 발생하는 event handler
   const onSubmitHandler = async (comment) => {
@@ -72,6 +78,7 @@ const CommentForm = () => {
       contents: "",
       password: "",
       id: "",
+      Postid: param.id,
     });
   };
 
