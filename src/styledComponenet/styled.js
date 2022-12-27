@@ -20,9 +20,6 @@ export const HeaderHomme = styled.div`
   &:hover {
     color: #da3237;
   }
-  &:focus {
-    color: #da3237;
-  }
 `;
 
 export const HeaderNavigateBTN = styled.button`
@@ -33,7 +30,6 @@ export const HeaderNavigateBTN = styled.button`
   font-weight: bolder;
   font-size: 1rem;
   margin-right: 15px;
-  color: ${(props) => props.color};
   &:hover {
     color: #da3237;
   }
@@ -52,7 +48,6 @@ export const NavbarWrap = styled.div`
 export const AllBox = styled.div`
   margin: 0 20px;
   cursor: pointer;
-  color: ${(props) => props.color};
   &:hover {
     color: #da3237;
   }
@@ -60,7 +55,6 @@ export const AllBox = styled.div`
 export const JavascriptBox = styled.div`
   margin-right: 20px;
   cursor: pointer;
-  color: ${(props) => props.color};
   &:hover {
     color: #da3237;
   }
@@ -68,7 +62,6 @@ export const JavascriptBox = styled.div`
 export const CssBox = styled.div`
   margin-right: 20px;
   cursor: pointer;
-  color: ${(props) => props.color};
   &:hover {
     color: #da3237;
   }
@@ -76,7 +69,6 @@ export const CssBox = styled.div`
 export const ReactBox = styled.div`
   margin-right: 20px;
   cursor: pointer;
-  color: ${(props) => props.color};
   &:hover {
     color: #da3237;
   }
@@ -84,7 +76,6 @@ export const ReactBox = styled.div`
 export const ReduxBox = styled.div`
   margin-right: 20px;
   cursor: pointer;
-  color: ${(props) => props.color};
   &:hover {
     color: #da3237;
   }
@@ -100,13 +91,9 @@ export const StBtn = styled.button`
   background: ${(x) => x.background};
   color: ${(x) => x.color};
 
-  &:hover::before {
-    background-color: black;
-    border-radius: 0.5rem;
-  }
   &:hover {
-    box-shadow: 0 0 30px 2px #da3237;
-    border-radius: 0.5rem;
-    border: none;
+    box-shadow: ${(props) => props.boxShadow};
+    border-radius: ${(props) => props.hoverBoxShadow};
+    border: ${(props) => props.border};
   }
 `;

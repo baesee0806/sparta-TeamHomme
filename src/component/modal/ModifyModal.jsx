@@ -19,6 +19,7 @@ const StmodalContainer = styled.div`
   z-index: 999;
 `;
 const StmodalBox = styled.div`
+  padding: 20px;
   width: 500px;
   height: 250px;
   background-color: white;
@@ -37,6 +38,7 @@ const StmodalBtn = styled.div`
 `;
 
 const Stmodalinput = styled.div`
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +48,11 @@ const Stmodalinput = styled.div`
 const Stmodifyinput = styled.input`
   height: 3rem;
   width: 20rem;
+`;
+
+const ModalModifyInput = styled.input`
+  width: 98%;
+  height: 30px;
 `;
 
 const ModifyModal = ({ fetchComments, comments }) => {
@@ -104,6 +111,7 @@ const ModifyModal = ({ fetchComments, comments }) => {
     <StmodalContainer onClick={(e) => closeModalIfClickOutside(e)}>
       <StmodalBox>
         <div>수정하시겠습니까?</div>
+        <label htmlFor="pw">수정을 원하시면 비밀번호를 입력해 주세요</label>
         <form
           // 버튼이 실행되었을 시 리렌더링이 되는 것을 방지.
           onSubmit={(e) => {
@@ -111,9 +119,11 @@ const ModifyModal = ({ fetchComments, comments }) => {
           }}
         >
           <Stmodalinput>
-            <input
+            <ModalModifyInput
               type="password"
+              id="pw"
               name="pw"
+              placeholder="비밀번호"
               onChange={onChangePw}
               value={pwcheck}
             />
@@ -135,7 +145,7 @@ const ModifyModal = ({ fetchComments, comments }) => {
               취소
             </StBtn>
             <StBtn
-              background="green"
+              background="#1585f1"
               color="white"
               onClick={() => {
                 onModifyComments(MmodalId);

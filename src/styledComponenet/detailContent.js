@@ -55,17 +55,16 @@ export const PasswordCheckLabel = styled.label`
 `;
 
 export const PassWordCheckInput = styled.input`
+  margin-left: 5px;
   border: 1px solid #e7e8e7;
   border-radius: 10px;
   &:focus {
     outline-color: #da3236;
   }
 `;
-export const DetailBtn = styled.button`
-  margin-right: 18px;
-  background: inherit;
-  border: none;
-  cursor: pointer;
+export const DetailBtnBox = styled.div`
+  display: flex;
+  gap: 1rem;
 `;
 
 export const DetailContentWrap = styled.div`

@@ -35,6 +35,10 @@ const StmodalBtn = styled.div`
   margin-top: 30px;
 `;
 
+const ModalDeleteInput = styled.input`
+  margin-left: 15px;
+`;
+
 const Modal = ({ fetchComments, comments }) => {
   const dispatch = useDispatch();
 
@@ -84,14 +88,17 @@ const Modal = ({ fetchComments, comments }) => {
     <StmodalContainer onClick={(e) => closeModalIfClickOutside(e)}>
       <StmodalBox>
         <div>정말로 삭제하시겠습니까?</div>
+        <label htmlFor="pw">삭제를 원하시면 비밀번호를 입력해주세요</label>
         <form
           // 버튼이 실행되었을 시 리렌더링이 되는 것을 방지.
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
-          <input
+          <ModalDeleteInput
+            placeholder="비밀번호"
             type="password"
+            id="pw"
             name="pw"
             onChange={onChangePw}
             value={pwcheck}
@@ -105,7 +112,7 @@ const Modal = ({ fetchComments, comments }) => {
               취소
             </StBtn>
             <StBtn
-              background="red"
+              background="#e5092f"
               color="white"
               onClick={() => {
                 onDeleteComments(modalId);

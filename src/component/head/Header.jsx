@@ -25,6 +25,9 @@ function Header() {
       PortAdress.toString() == `/update/${id}` ||
       PortAdress.toString() == `/detail/${id}` ? (
         <StBtn
+          boxShadow="0 0 30px 2px #da3237"
+          hoverBoxShadow="0.5rem"
+          border="none"
           background="#da3237"
           color="white"
           onClick={() => {
@@ -35,6 +38,9 @@ function Header() {
         </StBtn>
       ) : (
         <StBtn
+          boxShadow="0 0 30px 2px #da3237"
+          hoverBoxShadow="0.5rem"
+          border="none"
           background="#da3237"
           color="white"
           onClick={() => {

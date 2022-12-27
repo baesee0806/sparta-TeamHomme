@@ -8,7 +8,7 @@ import {
   DetailWrap,
   DetailTitle,
   DetailBtnWrap,
-  // DetailBtn,
+  DetailBtnBox,
   DetailContentWrap,
   DetailContent,
   DetailCategory,
@@ -51,19 +51,20 @@ function DetailContents() {
         <DetailBtnWrap>
           <PasswordCheckBox>
             <PasswordCheckLabel htmlFor="password">
-              비밀번호 :{" "}
+              P.W{"   "}
             </PasswordCheckLabel>
             <PassWordCheckInput
               id="password"
               type="password"
               value={pwCheck}
+              placeholder="          password"
               onChange={(e) => setPwCheck(e.target.value)}
             />
           </PasswordCheckBox>
-          <div>
+          <DetailBtnBox>
             <StBtn
-              background="black"
-              color="white"
+              background="transparent"
+              color="#1785f2"
               onClick={() => {
                 list[0]?.password == pwCheck
                   ? navigate(`/update/${id}`)
@@ -73,8 +74,8 @@ function DetailContents() {
               수정
             </StBtn>
             <StBtn
-              background="black"
-              color="white"
+              background="transparent"
+              color="#e5092f"
               onClick={() => {
                 list[0]?.password == pwCheck
                   ? onDeleteContent(id)
@@ -83,7 +84,7 @@ function DetailContents() {
             >
               삭제
             </StBtn>
-          </div>
+          </DetailBtnBox>
         </DetailBtnWrap>
       </DetailWrap>
       <DetailContentWrap>

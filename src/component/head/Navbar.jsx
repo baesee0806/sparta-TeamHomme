@@ -12,26 +12,23 @@ import { useState } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
-  const [color, setColor] = useState("red");
-  const Box = ["All", JavaScript, Css, ReacT, Redux];
-  const onChangeColor = (e) => {
-    Box.filter((item) =>
-      item === e.target.id && color === "red"
-        ? setColor("red")
-        : setColor("black")
-    );
-    console.log(e.target);
-  };
+  // const [color, setColor] = useState("red");
+  // const Box = ["All", JavaScript, Css, ReacT, Redux];
+  // const onChangeColor = (e) => {
+  //   Box.filter((item) =>
+  //     item === e.target.id && color === "red"
+  //       ? setColor("red")
+  //       : setColor("black")
+  //   );
+  //   console.log(e.target);
+  // };
 
   return (
     <NavbarWrap>
       {/* All area */}
       <AllBox
-        id="All"
-        color={color}
-        onClick={(e) => {
+        onClick={() => {
           navigate(`/${All}`);
-          onChangeColor(e);
         }}
       >
         All
@@ -39,11 +36,8 @@ function Navbar() {
 
       {/* Javascript area */}
       <JavascriptBox
-        id={JavaScript}
-        color={color}
-        onClick={(e) => {
+        onClick={() => {
           navigate("/" + JavaScript);
-          onChangeColor(e);
         }}
       >
         Javascript
@@ -51,11 +45,8 @@ function Navbar() {
 
       {/* Css area */}
       <CssBox
-        id={Css}
-        color={color}
-        onClick={(e) => {
+        onClick={() => {
           navigate("/" + Css);
-          onChangeColor(e);
         }}
       >
         Css
@@ -63,11 +54,8 @@ function Navbar() {
 
       {/* React area */}
       <ReactBox
-        id={ReacT}
-        color={color}
-        onClick={(e) => {
+        onClick={() => {
           navigate("/" + ReacT);
-          onChangeColor(e);
         }}
       >
         React
@@ -75,11 +63,8 @@ function Navbar() {
 
       {/* Redux area */}
       <ReduxBox
-        id={Redux}
-        color={color}
-        onClick={(e) => {
+        onClick={() => {
           navigate("/" + Redux);
-          onChangeColor(e);
         }}
       >
         Redux

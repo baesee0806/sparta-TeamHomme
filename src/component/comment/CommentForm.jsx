@@ -12,12 +12,12 @@ import { useParams } from "react-router";
 const StCmtForm = styled.div`
   display: flex;
   flex-direction: column;
-
   gap: 20px;
   padding: 30px 50px;
 `;
 const StInputForm = styled.form`
   display: flex;
+  align-items: center;
   flex-direction: row;
 `;
 const StFormLabel = styled.label`
@@ -28,12 +28,13 @@ const StFormLabel = styled.label`
 const StAddInput = styled.input`
   border: 2px solid #e7e8e7;
   height: 50px;
-  width: 100%;
+  width: 78.5%;
   margin-right: 1%;
 `;
 
 const StAddPassword = styled.input`
   border: 2px solid #e7e8e7;
+  height: 50px;
 `;
 
 const StCmtCard = styled.div`
@@ -43,6 +44,11 @@ const StCmtCard = styled.div`
 
   border-bottom: 2px solid #e7e8e7;
   height: 60px;
+`;
+
+const StBtnBox = styled.div`
+  display: flex;
+  gap: 0.7rem;
 `;
 
 const CommentForm = () => {
@@ -99,7 +105,7 @@ const CommentForm = () => {
   return (
     <>
       <StCmtForm>
-        <StFormLabel>댓글</StFormLabel>
+        <StFormLabel htmlFor="comment">댓글</StFormLabel>
         <StInputForm
           onSubmit={(e) => {
             e.preventDefault();
@@ -107,6 +113,7 @@ const CommentForm = () => {
           }}
         >
           <StAddInput
+            id="comment"
             type="text"
             onChange={(ev) => {
               const { value } = ev.target;
@@ -130,7 +137,7 @@ const CommentForm = () => {
             value={comment.password}
             placeholder="비밀번호"
           />
-          <StBtn background="black" color="white">
+          <StBtn background="#4cb050" color="white">
             추가
           </StBtn>
         </StInputForm>
@@ -138,9 +145,9 @@ const CommentForm = () => {
           ?.map((comment) => (
             <StCmtCard key={comment.id}>
               <div>{comment.contents}</div>
-              <div>
+              <StBtnBox>
                 <StBtn
-                  background="black"
+                  background="#1785f2"
                   color="white"
                   onClick={() => {
                     return showModifyModalHandler(comment.id);
@@ -149,15 +156,15 @@ const CommentForm = () => {
                   수정
                 </StBtn>
                 <StBtn
-                  background="black"
-                  color="white"
+                  background="transparent"
+                  color="#e5092f"
                   onClick={() => {
                     return showDeleteModalHandler(comment.id);
                   }}
                 >
                   삭제
                 </StBtn>
-              </div>
+              </StBtnBox>
             </StCmtCard>
           ))
           // 가장 최근에 달린 comment를 위에 보여주기 위해 reverse사용
