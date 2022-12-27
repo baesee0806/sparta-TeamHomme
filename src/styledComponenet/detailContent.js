@@ -21,7 +21,11 @@ export const DetailTitle = styled.div`
   font-weight: bold;
 `;
 
-export const DetailBtnWrap = styled.div``;
+export const DetailBtnWrap = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+`;
 export const DetailBtn = styled.button`
   margin-right: 18px;
   background: inherit;
