@@ -2,58 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StBtn } from "../../styledComponenet/styled";
 import { hideModifyModal } from "../../redux/modules/modifymodal";
-import styled from "styled-components";
 import axios from "axios";
-
-const StmodalContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: auto;
-  background-color: rgba(0 0 0/60%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-`;
-const StmodalBox = styled.div`
-  padding: 20px;
-  width: 500px;
-  height: 250px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 1rem;
-`;
-const StmodalBtn = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-
-  margin-top: 30px;
-`;
-
-const Stmodalinput = styled.div`
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-`;
-
-const Stmodifyinput = styled.input`
-  height: 3rem;
-  width: 20rem;
-`;
-
-const ModalModifyInput = styled.input`
-  width: 98%;
-  height: 30px;
-`;
+import {
+  ModalModifyInput,
+  Stmodifyinput,
+  Stmodalinput,
+  StmodalBtn,
+  StmodalBox,
+  StmodalContainer,
+} from "../../styledComponenet/modalModify";
 
 const ModifyModal = ({ fetchComments, comments }) => {
   const dispatch = useDispatch();
