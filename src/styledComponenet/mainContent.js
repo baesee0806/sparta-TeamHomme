@@ -5,6 +5,7 @@ import styled from "styled-components";
 export const MainContentWrap = styled.div`
   margin-top: 20px;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
 `;

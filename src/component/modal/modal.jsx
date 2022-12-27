@@ -10,6 +10,7 @@ const StmodalContainer = styled.div`
   height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   margin: auto;
   background-color: rgba(0 0 0/60%);
   display: flex;

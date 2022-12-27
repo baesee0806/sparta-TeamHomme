@@ -4,6 +4,7 @@ import axios from "axios";
 import CommentForm from "../../component/comment/CommentForm";
 
 import {
+  DetailBigWrap,
   DetailWrap,
   DetailTitle,
   DetailBtnWrap,
@@ -11,6 +12,11 @@ import {
   DetailContentWrap,
   DetailContent,
   DetailCategory,
+  PasswordCheckBox,
+  PasswordCheckLabel,
+  PassWordCheckInput,
+  DetailTextBox,
+  DetailWriter,
 } from "../../styledComponenet/detailContent";
 import { StBtn } from "../../styledComponenet/styled";
 function DetailContents() {
@@ -32,21 +38,28 @@ function DetailContents() {
   }, []);
 
   const list = lists.filter((el) => el.id == id);
+  console.log(list);
 
   return (
-    <>
+    <DetailBigWrap>
       <DetailCategory>{"카테고리 > " + list[0]?.category}</DetailCategory>
       <DetailWrap>
-        <DetailTitle>{list[0]?.title}</DetailTitle>
+        <DetailTextBox>
+          <DetailTitle>{list[0]?.title}</DetailTitle>
+          <DetailWriter>{list[0]?.writer}</DetailWriter>
+        </DetailTextBox>
         <DetailBtnWrap>
-          <div>
-            <label>비밀번호 확인</label>
-            <input
+          <PasswordCheckBox>
+            <PasswordCheckLabel htmlFor="password">
+              비밀번호 :{" "}
+            </PasswordCheckLabel>
+            <PassWordCheckInput
+              id="password"
               type="password"
               value={pwCheck}
               onChange={(e) => setPwCheck(e.target.value)}
             />
-          </div>
+          </PasswordCheckBox>
           <div>
             <StBtn
               background="black"
@@ -77,7 +90,7 @@ function DetailContents() {
         <DetailContent>{list[0]?.contents}</DetailContent>
       </DetailContentWrap>
       <CommentForm />
-    </>
+    </DetailBigWrap>
   );
 }
 

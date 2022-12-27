@@ -134,8 +134,8 @@ const CommentForm = () => {
         </StInputForm>
         {comments
           ?.map((comment) => (
-            <StCmtCard>
-              <div key={comment.id}>{comment.contents}</div>
+            <StCmtCard key={comment.id}>
+              <div>{comment.contents}</div>
               <div>
                 <StBtn
                   background="black"

@@ -47,7 +47,7 @@ export default function Post() {
       id: id,
       writer: writer,
       password: password,
-      title: password,
+      title: title,
       contents: contents,
       category: category,
       time: new Date(),
