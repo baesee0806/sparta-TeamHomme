@@ -54,11 +54,7 @@ const ModifyModal = ({ fetchComments, comments }) => {
   const MmodalId = useSelector((state) => state.modifymodal.MmodalId);
   // modal창 안에 있는 input(비밀번호) 값을 받아옴
   const [pwcheck, setPwcheck] = useState("");
-  const [modifyCmt, setModifyCmt] = useState({
-    contents: "",
-    password: "",
-    id: "",
-  });
+  const [modifyCmt, setModifyCmt] = useState([]);
 
   // modal창 안에 있는 input(비밀번호)를 setPwcheck에 저장.
   const onChangePw = (e) => {
@@ -89,8 +85,9 @@ const ModifyModal = ({ fetchComments, comments }) => {
 
   // 댓글 수정하는 event handler
   const onModifyComments = async (id) => {
+    const comment = comments.find((item) => item.id === id);
     // 조건 : 저장된 비밀번호와 입력한 비밀번호가 같고 id값이 같은 요소만 삭제
-    if (comments[id - 1].password === pwcheck && id === id) {
+    if (comment.password === pwcheck && id === id) {
       await axios.patch(`http://localhost:3001/comments/${id}`, modifyCmt);
       fetchComments();
       // 반드시 리턴을 해줘야 끝남 아니면 계속 돔.
