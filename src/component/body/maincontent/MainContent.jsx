@@ -6,7 +6,7 @@ import {
   MainContentWrap,
   // PageTitle,
 } from "../../../styledComponenet/mainContent";
-import { All, JavaScript, Css, ReacT, Redux } from "../../../share/constant";
+import { All, JavaScript, CSS, ReacT, Redux } from "../../../share/constant";
 import ContentItems from "./ContentItems";
 import TopButton from "./TopButton";
 
@@ -17,7 +17,9 @@ function MainContent() {
 
   // 데이터를 가져와서 lists에 넣어 준다.
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3010/Item/");
+    const { data } = await axios.get(
+      "https://melodious-lunar-fibre.glitch.me/item"
+    );
     setLists(data);
   };
 
@@ -44,7 +46,7 @@ function MainContent() {
               .map((item) => <ContentItems key={item.id} item={item} />)
               .reverse()
           : category === JavaScript ||
-            category === Css ||
+            category === CSS ||
             category === ReacT ||
             category === Redux
           ? list

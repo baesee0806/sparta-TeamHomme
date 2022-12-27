@@ -15,7 +15,7 @@ const StmodalContainer = styled.div`
   z-index: 999;
 `;
 const StmodalBox = styled.div`
-  padding: 20px;
+  padding: 30px;
   width: 500px;
   height: 250px;
   background-color: white;
@@ -25,11 +25,14 @@ const StmodalBox = styled.div`
   justify-content: space-evenly;
   border-radius: 1rem;
 `;
+
+const ModifyText = styled.div`
+  margin-bottom: 20px;
+`;
 const StmodalBtn = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-
   margin-top: 30px;
 `;
 
@@ -58,4 +61,5 @@ export {
   Stmodalinput,
   StmodalBtn,
   StmodalBox,
+  ModifyText,
 };

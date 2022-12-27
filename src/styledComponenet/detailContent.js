@@ -22,7 +22,6 @@ export const DetailWrap = styled.div`
 
 export const DetailTextBox = styled.div`
   margin-left: 18px;
-
   align-items: center;
 `;
 
@@ -32,7 +31,7 @@ export const DetailWriter = styled.span`
 `;
 
 export const DetailTitle = styled.div`
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
 `;
@@ -74,5 +73,6 @@ export const DetailContentWrap = styled.div`
 `;
 
 export const DetailContent = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  white-space: pre-line;
 `;

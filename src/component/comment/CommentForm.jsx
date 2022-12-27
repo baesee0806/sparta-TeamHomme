@@ -36,7 +36,9 @@ const CommentForm = () => {
 
   const fetchComments = async () => {
     //server에서 data들을 axios를 활용하여 가져옴
-    const { data } = await axios.get("http://localhost:3001/comments");
+    const { data } = await axios.get(
+      "https://melodious-lunar-fibre.glitch.me/comments"
+    );
     const detail = data.filter((item) => item.Postid === param.id);
     setComments(detail);
     console.log(detail);
@@ -45,7 +47,10 @@ const CommentForm = () => {
 
   // 추가하기 버튼 눌렀을 때 발생하는 event handler
   const onSubmitHandler = async (comment) => {
-    await axios.post("http://localhost:3001/comments", comment);
+    await axios.post(
+      "https://melodious-lunar-fibre.glitch.me/comments",
+      comment
+    );
     fetchComments();
     // input에 입력되어 있는 값들을 onSubmitHandler가 실행된 후 비워주는 역할.
     setComment({
@@ -103,7 +108,7 @@ const CommentForm = () => {
             value={comment.password}
             placeholder="비밀번호"
           />
-          <StBtn background="#4cb050" color="white">
+          <StBtn style={{ height: 60 }} background="#4cb050" color="white">
             추가
           </StBtn>
         </StInputForm>

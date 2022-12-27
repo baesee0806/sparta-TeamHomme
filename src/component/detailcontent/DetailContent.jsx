@@ -25,11 +25,13 @@ function DetailContents() {
   const [lists, setLists] = useState([]);
   const [pwCheck, setPwCheck] = useState("");
   const fetchItem = async () => {
-    const { data } = await axios.get("http://localhost:3010/Item/");
+    const { data } = await axios.get(
+      "https://melodious-lunar-fibre.glitch.me/item"
+    );
     setLists(data);
   };
   const onDeleteContent = async (id) => {
-    await axios.delete(`http://localhost:3010/Item/${id}`);
+    await axios.delete(`https://melodious-lunar-fibre.glitch.me/item/${id}`);
     fetchItem();
     navigate(`/`);
   };

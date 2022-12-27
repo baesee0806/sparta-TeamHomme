@@ -40,7 +40,8 @@ export default function Post() {
     if (writer.length === 0) return alert("작성자 이름을 입력해 주세요");
     if (title.length > 50) return alert("제목은 50자 이내로 입력해주세요.");
     if (title.length === 0) return alert("제목을 입력해 주세요");
-    if (contents.length > 200) return alert("내용은 200자 이내로 입력해주세요");
+    if (contents.length > 2000)
+      return alert("내용은 2000자 이내로 입력해주세요");
     if (contents.length === 0) return alert("내용을 입력해 주세요");
 
     const item = {
@@ -54,7 +55,7 @@ export default function Post() {
     };
 
     try {
-      await axios.post("http://localhost:3010/item", item);
+      await axios.post("https://melodious-lunar-fibre.glitch.me/item", item);
       alert("추가 성공");
       navigate(`/detail/${id}`);
     } catch (error) {
@@ -126,12 +127,12 @@ export default function Post() {
           <PostTextarea
             type="text"
             id="content"
-            maxLength={201}
+            maxLength={2001}
             value={contents}
             onChange={(e) => {
               setContents(e.target.value);
             }}
-            placeholder="내용을 입력해주세요. (200자 이내)"
+            placeholder="내용을 입력해주세요. (2000자 이내)"
           />
         </div>
         {/* 작성한 글을 추가하는 버튼 */}

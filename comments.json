@@ -1,0 +1,91 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "contents": "dd",
+      "password": "dd",
+      "id": 2,
+      "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+    },
+    {
+      "0": {
+        "contents": "dd",
+        "password": "dd",
+        "id": 2,
+        "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+      },
+      "1": {
+        "contents": "dd",
+        "password": "dd",
+        "id": 3,
+        "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+      },
+      "contents": "dddd 깃허브 씨발",
+      "password": "dd",
+      "id": 3,
+      "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+    },
+    {
+      "contents": "안녕",
+      "password": "ㅎㅏtpdy",
+      "id": 4,
+      "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+    },
+    {
+      "0": {
+        "contents": "dd",
+        "password": "dd",
+        "id": 2,
+        "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+      },
+      "1": {
+        "0": {
+          "contents": "dd",
+          "password": "dd",
+          "id": 2,
+          "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+        },
+        "1": {
+          "contents": "dd",
+          "password": "dd",
+          "id": 3,
+          "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+        },
+        "contents": "dddd 깃허브 씨발",
+        "password": "dd",
+        "id": 3,
+        "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+      },
+      "2": {
+        "contents": "안녕",
+        "password": "ㅎㅏtpdy",
+        "id": 4,
+        "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+      },
+      "3": {
+        "contents": "dd",
+        "password": "1234",
+        "id": 5,
+        "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+      },
+      "contents": "ddddddddddddddddddddddfdfdffaewfeawfwefwefewfwefwefewfaewf",
+      "password": "1234",
+      "id": 5,
+      "Postid": "e5f24965-ccc9-4c76-9073-74fad380a57f"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

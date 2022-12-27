@@ -2,7 +2,7 @@ import Body from "../component/body/Body";
 import Header from "../component/head/Header";
 import Navbar from "../component/head/Navbar";
 
-function JavascriptPage() {
+function Category() {
   return (
     <>
       <Header />
@@ -12,4 +12,4 @@ function JavascriptPage() {
   );
 }
 
-export default JavascriptPage;
+export default Category;

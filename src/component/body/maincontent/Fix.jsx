@@ -33,7 +33,9 @@ export default function Fix() {
   // fetchTodos 함수에서만 적용된다.
   // 따라서 처음 렌더링할 때 get 요청을 보냈지만 그 전에 밑에 다른 코드들이 실행되고, 데이터를 가져온 다음 state가 변경되서 다시 렌더링된다.
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3010/Item/");
+    const { data } = await axios.get(
+      "https://melodious-lunar-fibre.glitch.me/item"
+    );
     const detail = data.find((item) => item.id.toString() === param.id);
     setData(detail);
   };
@@ -55,12 +57,15 @@ export default function Fix() {
     if (data.title.length > 50)
       return alert("제목은 50자 이내로 입력해주세요.");
     if (data.title.length === 0) return alert("제목을 입력해 주세요");
-    if (data.contents.length > 200)
-      return alert("내용은 200자 이내로 입력해주세요");
+    if (data.contents.length > 2000)
+      return alert("내용은 2000자 이내로 입력해주세요");
     if (data.contents.length === 0) return alert("내용을 입력해 주세요");
 
     alert("수정되었습니다.");
-    await axios.patch(`http://localhost:3010/item/${data.id}`, data);
+    await axios.patch(
+      `https://melodious-lunar-fibre.glitch.me/item/${data.id}`,
+      data
+    );
 
     // fetchItems() -> 아이탬을 다시 불러온다 ... 데이터에 있는걸 다시 가져온다 하지만 포스트만 하면 ok이기 때문에 다시 가져올 필요가없다.
     // setItems([...items, item]); -- 이녀석이 fetch랑 똑같은 기능이기 때문에 필요없다.
@@ -119,7 +124,7 @@ export default function Fix() {
           <PostTextarea
             type="text"
             id="contents"
-            maxLength={201}
+            maxLength={2001}
             value={data.contents || ""}
             onChange={(e) => {
               setData({ ...data, contents: e.target.value });

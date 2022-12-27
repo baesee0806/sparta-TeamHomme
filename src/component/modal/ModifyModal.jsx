@@ -10,6 +10,7 @@ import {
   StmodalBtn,
   StmodalBox,
   StmodalContainer,
+  ModifyText,
 } from "../../styledComponenet/modalModify";
 
 const ModifyModal = ({ fetchComments, comments }) => {
@@ -27,7 +28,9 @@ const ModifyModal = ({ fetchComments, comments }) => {
   };
 
   const fetchCmts = async () => {
-    const { data } = await axios.get(`http://localhost:3001/comments/`);
+    const { data } = await axios.get(
+      `https://melodious-lunar-fibre.glitch.me/comments`
+    );
     const modify = data.find((comments) => comments.id === MmodalId);
     setModifyCmt(modify);
   };
@@ -53,7 +56,10 @@ const ModifyModal = ({ fetchComments, comments }) => {
     const comment = comments.find((item) => item.id === id);
     // 조건 : 저장된 비밀번호와 입력한 비밀번호가 같고 id값이 같은 요소만 삭제
     if (comment.password === pwcheck && id === id) {
-      await axios.patch(`http://localhost:3001/comments/${id}`, modifyCmt);
+      await axios.patch(
+        `https://melodious-lunar-fibre.glitch.me/comments/${id}`,
+        modifyCmt
+      );
       fetchComments();
       // 반드시 리턴을 해줘야 끝남 아니면 계속 돔.
       return;
@@ -67,7 +73,7 @@ const ModifyModal = ({ fetchComments, comments }) => {
   return (
     <StmodalContainer onClick={(e) => closeModalIfClickOutside(e)}>
       <StmodalBox>
-        <div>수정하시겠습니까?</div>
+        <ModifyText>수정하시겠습니까?</ModifyText>
         <label htmlFor="pw">수정을 원하시면 비밀번호를 입력해 주세요</label>
         <form
           // 버튼이 실행되었을 시 리렌더링이 되는 것을 방지.

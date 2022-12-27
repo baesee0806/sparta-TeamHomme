@@ -10,8 +10,8 @@ const StCmtForm = styled.div`
 `;
 const StInputForm = styled.form`
   display: flex;
+  gap: 0.3rem;
   align-items: center;
-  flex-direction: row;
 `;
 const StFormLabel = styled.label`
   font-size: 30px;
