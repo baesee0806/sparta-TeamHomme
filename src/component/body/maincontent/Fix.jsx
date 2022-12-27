@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-// import { v4 as uuidv4 } from "uuid";
 import {
   PostContainer,
   PostTopWrapper,
@@ -8,9 +7,8 @@ import {
   PostTextarea,
   PostButton,
   PostWriterWrapper,
-  // PostPasswordWrapper,
   PostLabel,
-} from "../../../styledComponenet/postStyled";
+} from "../../../styledComponenet/fixStyled";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -39,17 +37,17 @@ export default function Fix() {
   //   undefined 라서 처음에 렌더링이 안되고 에러가 뜬다.
   //     const detail = data.find((item) => item.id.toString() === param.id);
 
-  const onSubmit = async (e, edit) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (edit.writer.length > 5)
+    if (data.writer.length > 5)
       return alert("작성자 이름은 5글자 이내로 입력해주세요");
     // if (writer.length === 0) return alert("작성자 이름을 입력해 주세요");
-    if (edit.title.length > 50)
+    if (data.title.length > 50)
       return alert("제목은 50자 이내로 입력해주세요.");
-    if (edit.title.length === 0) return alert("제목을 입력해 주세요");
-    if (edit.contents.length > 200)
+    if (data.title.length === 0) return alert("제목을 입력해 주세요");
+    if (data.content.length > 200)
       return alert("내용은 200자 이내로 입력해주세요");
-    if (edit.contents.length === 0) return alert("내용을 입력해 주세요");
+    if (data.content.length === 0) return alert("내용을 입력해 주세요");
 
     alert("추가되었습니다.");
     await axios.patch(`http://localhost:3010/item/${data.id}`, data);
@@ -63,7 +61,7 @@ export default function Fix() {
 
   return (
     <>
-      <PostContainer onSubmit={(e) => onSubmit(e, data)}>
+      <PostContainer onSubmit={(e) => onSubmit(e)}>
         {/* 상단 wrapper */}
         <PostTopWrapper>
           <PostWriterWrapper>
@@ -111,15 +109,15 @@ export default function Fix() {
           </select>
         </div>
         <div>
-          <PostLabel htmlFor="contents">내용</PostLabel>
+          <PostLabel htmlFor="content">내용</PostLabel>
           {/* 내용을 입력하는 Textarea */}
           <PostTextarea
             type="text"
-            id="contents"
+            id="content"
             maxLength={201}
-            value={data.contents || ""}
+            value={data.content || ""}
             onChange={(e) => {
-              setData({ ...data, contents: e.target.value });
+              setData({ ...data, content: e.target.value });
             }}
           />
         </div>
