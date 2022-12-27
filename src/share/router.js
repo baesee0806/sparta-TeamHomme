@@ -17,11 +17,8 @@ const Router = () => {
       <Routes>
         <Route path="detail/:id" element={<Detail />} />
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="AllPage/:category" element={<AllPage />} /> */}
         <Route path=":category" element={<JavascriptPage />} />
-        {/* <Route path="CssPage/:category" element={<CssPage />} />
-        <Route path="ReactPage/:category" element={<ReactPage />} />
-        <Route path="ReduxPage/:category" element={<ReduxPage />} /> */}
+        <Route path="" />
         <Route path="notFound" element={<NotFound />} />
         <Route path="/post" element={<Write />} />
         <Route path="/update/:id" element={<Update />} />
