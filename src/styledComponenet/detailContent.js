@@ -7,10 +7,12 @@ export const DetailBigWrap = styled.div`
 `;
 
 export const DetailCategory = styled.div`
+  font-weight: bolder;
   margin: 30px 0 0 18px;
 `;
 
 export const DetailWrap = styled.div`
+  padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,19 +21,20 @@ export const DetailWrap = styled.div`
 `;
 
 export const DetailTextBox = styled.div`
-  margin-top: 20px;
   margin-left: 18px;
-  display: block;
+
   align-items: center;
 `;
 
 export const DetailWriter = styled.span`
+  margin-left: 3px;
   color: #029fad;
 `;
 
 export const DetailTitle = styled.div`
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 20px;
 `;
 
 export const DetailBtnWrap = styled.div`

@@ -26,12 +26,14 @@ const StFormLabel = styled.label`
 `;
 
 const StAddInput = styled.input`
-  border: 3px solid gray;
-  border-radius: 10px;
+  border: 2px solid #e7e8e7;
   height: 50px;
   width: 100%;
-
   margin-right: 1%;
+`;
+
+const StAddPassword = styled.input`
+  border: 2px solid #e7e8e7;
 `;
 
 const StCmtCard = styled.div`
@@ -39,7 +41,7 @@ const StCmtCard = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 4px solid black;
+  border-bottom: 2px solid #e7e8e7;
   height: 60px;
 `;
 
@@ -116,7 +118,7 @@ const CommentForm = () => {
             value={comment.contents}
             placeholder="댓글을 입력해주세요"
           />
-          <input
+          <StAddPassword
             type="password"
             onChange={(ev) => {
               const { value } = ev.target;
