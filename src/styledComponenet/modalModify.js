@@ -51,11 +51,4 @@ const ModalModifyInput = styled.input`
   height: 30px;
 `;
 
-export {
-  ModalModifyInput,
-  Stmodifyinput,
-  Stmodalinput,
-  StmodalBtn,
-  StmodalBox,
-  StmodalContainer,
-};
+export {};
