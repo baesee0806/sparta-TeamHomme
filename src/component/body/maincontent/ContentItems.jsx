@@ -24,13 +24,13 @@ function ContentItems({ item }) {
         {/* 아이템의 내용이 100자 이상이면 0부터 100번째 글자까지 나타내고 그 뒤에 ... 을 붙인다.
         아니라면 그냥 내용을 전부 보여준다. */}
         <p>
-          {item.content.length > 100
-            ? item.content.slice(0, 100) + "..."
-            : item.content}
+          {item.contents.length > 100
+            ? item.contents.slice(0, 100) + "..."
+            : item.contents}
         </p>
         <ListFooterBox>
           <ItemWriter>{item.writer}</ItemWriter>
-          <Time />
+          <Time time={item.time} />
         </ListFooterBox>
         {/* 마우스를 올렸을 때 자세히 보기 창을 띄우는 컴포넌트 */}
         <Figcaption>자세히보기</Figcaption>
