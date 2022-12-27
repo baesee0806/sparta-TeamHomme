@@ -35,27 +35,29 @@ export const PostLabel = styled.label`
 `;
 
 export const PostInput = styled.input`
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 20px;
-  border: 2px solid #999999;
+  border: 1px solid rgba(153, 153, 153, 0.4);
   font-size: 24px;
   width: 100%;
 
   &::placeholder {
     color: black;
+    opacity: 0.5;
   }
 `;
 
 export const PostTextarea = styled.textarea`
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 20px;
-  border: 2px solid #999999;
+  border: 1px solid rgba(153, 153, 153, 0.4);
   font-size: 24px;
   width: 100%;
   height: 300px;
 
   &::placeholder {
     color: black;
+    opacity: 0.5;
   }
 `;
 
@@ -63,9 +65,10 @@ export const PostButton = styled.button`
   width: 100%;
   background-color: white;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 24px;
   padding: 24px;
-  border: 2px solid #999999;
+  opacity: 0.5;
+  border: 1px solid rgba(153, 153, 153, 0.4);
   cursor: pointer;
 `;
