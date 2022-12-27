@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { StBtn } from "../../styledComponenet/styled";
-import { useDispatch, useSelector } from "react-redux";
-import Modal from "../modal/modal";
-import ModifyModal from "../modal/ModifyModal";
-import { showDeleteModal } from "../../redux/modules/modal";
-import { showModifyModal } from "../../redux/modules/modifymodal";
-import { useParams } from "react-router";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import { StBtn } from '../../styledComponenet/styled';
+import { useDispatch, useSelector } from 'react-redux';
+import Modal from '../modal/modal';
+import ModifyModal from '../modal/ModifyModal';
+import { showDeleteModal } from '../../redux/modules/modal';
+import { showModifyModal } from '../../redux/modules/modifymodal';
+import { useParams } from 'react-router';
 
 const StCmtForm = styled.div`
   display: flex;
@@ -26,12 +26,14 @@ const StFormLabel = styled.label`
 `;
 
 const StAddInput = styled.input`
-  border: 3px solid gray;
-  border-radius: 10px;
+  border: 2px solid #e7e8e7;
   height: 50px;
   width: 100%;
-
   margin-right: 1%;
+`;
+
+const StAddPassword = styled.input`
+  border: 2px solid #e7e8e7;
 `;
 
 const StCmtCard = styled.div`
@@ -39,7 +41,7 @@ const StCmtCard = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 4px solid black;
+  border-bottom: 2px solid #e7e8e7;
   height: 60px;
 `;
 
@@ -51,9 +53,9 @@ const CommentForm = () => {
 
   //commet의 기본 form
   const [comment, setComment] = useState({
-    contents: "",
-    password: "",
-    id: "",
+    contents: '',
+    password: '',
+    id: '',
     Postid: param.id,
   });
 
@@ -62,7 +64,7 @@ const CommentForm = () => {
 
   const fetchComments = async () => {
     //server에서 data들을 axios를 활용하여 가져옴
-    const { data } = await axios.get("http://localhost:3001/comments");
+    const { data } = await axios.get('http://localhost:3001/comments');
     const detail = data.filter((item) => item.Postid === param.id);
     setComments(detail);
     console.log(detail);
@@ -71,13 +73,13 @@ const CommentForm = () => {
 
   // 추가하기 버튼 눌렀을 때 발생하는 event handler
   const onSubmitHandler = async (comment) => {
-    await axios.post("http://localhost:3001/comments", comment);
+    await axios.post('http://localhost:3001/comments', comment);
     fetchComments();
     // input에 입력되어 있는 값들을 onSubmitHandler가 실행된 후 비워주는 역할.
     setComment({
-      contents: "",
-      password: "",
-      id: "",
+      contents: '',
+      password: '',
+      id: '',
       Postid: param.id,
     });
   };
@@ -105,7 +107,7 @@ const CommentForm = () => {
           }}
         >
           <StAddInput
-            type="text"
+            type='text'
             onChange={(ev) => {
               const { value } = ev.target;
               setComment({
@@ -114,10 +116,10 @@ const CommentForm = () => {
               });
             }}
             value={comment.contents}
-            placeholder="댓글을 입력해주세요"
+            placeholder='댓글을 입력해주세요'
           />
-          <input
-            type="password"
+          <StAddPassword
+            type='password'
             onChange={(ev) => {
               const { value } = ev.target;
               setComment({
@@ -126,20 +128,20 @@ const CommentForm = () => {
               });
             }}
             value={comment.password}
-            placeholder="비밀번호"
+            placeholder='비밀번호'
           />
-          <StBtn background="black" color="white">
+          <StBtn background='black' color='white'>
             추가
           </StBtn>
         </StInputForm>
         {comments
           ?.map((comment) => (
-            <StCmtCard>
-              <div key={comment.id}>{comment.contents}</div>
+            <StCmtCard key={comment.id}>
+              <div>{comment.contents}</div>
               <div>
                 <StBtn
-                  background="black"
-                  color="white"
+                  background='black'
+                  color='white'
                   onClick={() => {
                     return showModifyModalHandler(comment.id);
                   }}
@@ -147,8 +149,8 @@ const CommentForm = () => {
                   수정
                 </StBtn>
                 <StBtn
-                  background="black"
-                  color="white"
+                  background='black'
+                  color='white'
                   onClick={() => {
                     return showDeleteModalHandler(comment.id);
                   }}

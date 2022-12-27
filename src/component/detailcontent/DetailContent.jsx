@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import CommentForm from "../../component/comment/CommentForm";
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import CommentForm from '../../component/comment/CommentForm';
 
 import {
+  DetailBigWrap,
   DetailWrap,
   DetailTitle,
   DetailBtnWrap,
@@ -11,15 +12,20 @@ import {
   DetailContentWrap,
   DetailContent,
   DetailCategory,
-} from "../../styledComponenet/detailContent";
-import { StBtn } from "../../styledComponenet/styled";
+  PasswordCheckBox,
+  PasswordCheckLabel,
+  PassWordCheckInput,
+  DetailTextBox,
+  DetailWriter,
+} from '../../styledComponenet/detailContent';
+import { StBtn } from '../../styledComponenet/styled';
 function DetailContents() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [lists, setLists] = useState([]);
-  const [pwCheck, setPwCheck] = useState("");
+  const [pwCheck, setPwCheck] = useState('');
   const fetchItem = async () => {
-    const { data } = await axios.get("http://localhost:3010/Item/");
+    const { data } = await axios.get('http://localhost:3010/Item/');
     setLists(data);
   };
   const onDeleteContent = async (id) => {
@@ -32,40 +38,47 @@ function DetailContents() {
   }, []);
 
   const list = lists.filter((el) => el.id == id);
+  console.log(list);
 
   return (
-    <>
-      <DetailCategory>{"카테고리 > " + list[0]?.category}</DetailCategory>
+    <DetailBigWrap>
+      <DetailCategory>{'카테고리 > ' + list[0]?.category}</DetailCategory>
       <DetailWrap>
-        <DetailTitle>{list[0]?.title}</DetailTitle>
+        <DetailTextBox>
+          <DetailTitle>{list[0]?.title}</DetailTitle>
+          <DetailWriter>{list[0]?.writer}</DetailWriter>
+        </DetailTextBox>
         <DetailBtnWrap>
-          <div>
-            <label>비밀번호 확인</label>
-            <input
-              type="password"
+          <PasswordCheckBox>
+            <PasswordCheckLabel htmlFor='password'>
+              비밀번호 :{' '}
+            </PasswordCheckLabel>
+            <PassWordCheckInput
+              id='password'
+              type='password'
               value={pwCheck}
               onChange={(e) => setPwCheck(e.target.value)}
             />
-          </div>
+          </PasswordCheckBox>
           <div>
             <StBtn
-              background="black"
-              color="white"
+              background='black'
+              color='white'
               onClick={() => {
                 list[0]?.password == pwCheck
                   ? navigate(`/update/${id}`)
-                  : alert("비밀번호가 틀렸습니다.");
+                  : alert('비밀번호가 틀렸습니다.');
               }}
             >
               수정
             </StBtn>
             <StBtn
-              background="black"
-              color="white"
+              background='black'
+              color='white'
               onClick={() => {
                 list[0]?.password == pwCheck
                   ? onDeleteContent(id)
-                  : alert("비밀번호가 틀렸습니다.");
+                  : alert('비밀번호가 틀렸습니다.');
               }}
             >
               삭제
@@ -77,7 +90,7 @@ function DetailContents() {
         <DetailContent>{list[0]?.contents}</DetailContent>
       </DetailContentWrap>
       <CommentForm />
-    </>
+    </DetailBigWrap>
   );
 }
 
