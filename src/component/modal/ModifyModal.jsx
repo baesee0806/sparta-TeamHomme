@@ -87,14 +87,11 @@ const ModifyModal = ({ fetchComments, comments }) => {
     dispatch(hideModifyModal(id));
   };
 
-  // 댓글 삭제하는 event handler
+  // 댓글 수정하는 event handler
   const onModifyComments = async (id) => {
     // 조건 : 저장된 비밀번호와 입력한 비밀번호가 같고 id값이 같은 요소만 삭제
-    // id값이 같다는 조건을 안줄시 저장된 요소들을 전체 돌면서 같은 비밀번호가 있으면 입력한 비밀번호가 다르더라도 삭제됨.
     if (comments[id - 1].password === pwcheck && id === id) {
       await axios.patch(`http://localhost:3001/comments/${id}`, modifyCmt);
-      // 삭제되었을 시 다시 axios.get해서 댓글 list를 가져옴...
-      // 서버와 연결이 자주 있어서 안좋은 방법 같음....
       fetchComments();
       // 반드시 리턴을 해줘야 끝남 아니면 계속 돔.
       return;
