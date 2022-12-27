@@ -12,7 +12,7 @@ import {
   DetailContent,
   DetailCategory,
 } from "../../styledComponenet/detailContent";
-
+import { StBtn } from "../../styledComponenet/styled";
 function DetailContents() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -35,8 +35,8 @@ function DetailContents() {
       <DetailWrap>
         <DetailTitle>{list[0]?.title}</DetailTitle>
         <DetailBtnWrap>
-          <DetailBtn onClick={() => navigate(`/update/${id}`)}>수정</DetailBtn>
-          <DetailBtn onClick={() => {}}>삭제</DetailBtn>
+          <StBtn  background="black" color="white" onClick={() => navigate(`/update/${id}`)}>수정</StBtn>
+          <StBtn background="black" color="white" onClick={() => {}}>삭제</StBtn>
         </DetailBtnWrap>
       </DetailWrap>
       <DetailContentWrap>

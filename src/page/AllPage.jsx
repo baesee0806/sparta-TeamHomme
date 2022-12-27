@@ -9,7 +9,6 @@ function AllPage () {
         <>
         <Header/>
         <Navbar/>
-        {/* content */}
         <Body/>
         </>
     ) 
