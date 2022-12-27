@@ -1,20 +1,7 @@
 {
   "Item": [
     {
-      "id": "4ba84af5-510d-4a7c-923e-b0c104ad2935",
-      "writer": "1234",
-      "password": "1234",
-      "title": "1234",
-      "contents": "123445321",
-      "category": "JavaScript"
-    },
-    {
-      "id": "98135782-9471-4c27-81d0-faa1461b0359",
-      "writer": "qwe",
-      "password": "qwe",
-      "title": "qwe",
-      "contents": "qew",
-      "category": "JavaScript"
+
     }
   ]
 }

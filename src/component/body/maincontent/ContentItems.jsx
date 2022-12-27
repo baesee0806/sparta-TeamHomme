@@ -30,7 +30,7 @@ function ContentItems({ item }) {
         </p>
         <ListFooterBox>
           <ItemWriter>{item.writer}</ItemWriter>
-          <Time />
+          <Time time={item.time} />
         </ListFooterBox>
         {/* 마우스를 올렸을 때 자세히 보기 창을 띄우는 컴포넌트 */}
         <Figcaption>자세히보기</Figcaption>
