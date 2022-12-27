@@ -16,7 +16,7 @@ function MainContent() {
   const { category } = useParams();
 
   // 데이터를 가져와서 lists에 넣어 준다.
-   const fetchTodos = async () => {
+  const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:3010/Item/");
     setLists(data);
   };
@@ -40,12 +40,16 @@ function MainContent() {
         useParams() 로 가져온 카테고리의 이름이 같은 것만 filter 한 list를 맵으로 뿌려줘라 */}
         {/* 3. 그것도 아니라면 /NotFound 페이지로 이동해라 */}
         {category === All || category === undefined
-          ? lists.map((item) => <ContentItems key={item.id} item={item} />)
+          ? lists
+              .map((item) => <ContentItems key={item.id} item={item} />)
+              .reverse()
           : category === JavaScript ||
             category === Css ||
             category === ReacT ||
             category === Redux
-          ? list.map((item) => <ContentItems key={item.id} item={item} />)
+          ? list
+              .map((item) => <ContentItems key={item.id} item={item} />)
+              .reverse()
           : navigate("/notFound")}
         <TopButton />
       </MainContentWrap>

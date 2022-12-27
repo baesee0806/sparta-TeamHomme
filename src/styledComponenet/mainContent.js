@@ -3,6 +3,7 @@ import styled from "styled-components";
 // MainContent.jsx
 
 export const MainContentWrap = styled.div`
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,14 +17,14 @@ export const PageTitle = styled.h1`
 
 export const ListBox = styled.div`
   padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  width: 1200px;
+  border-top: 1px solid #eee;
+  width: 95%;
   cursor: pointer;
   overflow: hidden;
   position: relative;
   &:hover Figcaption,
   &:focus Figcaption {
-    opacity: 1;
+    opacity: 0.5;
   }
 `;
 

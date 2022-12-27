@@ -2,40 +2,48 @@ import {
   HeaderWrap,
   HeaderHomme,
   HeaderNavigateBTN,
-} from '../../styledComponenet/styled';
-import { useNavigate } from 'react-router-dom';
+} from "../../styledComponenet/styled";
+import { useNavigate, useParams } from "react-router-dom";
+import { StBtn } from "../../styledComponenet/styled";
 
 function Header() {
   const PortAdress = window.location.pathname;
   const navigate = useNavigate();
+  const { id } = useParams();
 
   return (
     <HeaderWrap>
       {/* Header area */}
       <HeaderHomme
         onClick={() => {
-          navigate('/');
+          navigate("/");
         }}
       >
-        Homme
+        Code Blind
       </HeaderHomme>
-      {PortAdress.toString() == '/post' ? (
-        <HeaderNavigateBTN
+      {PortAdress.toString() == "/post" ||
+      PortAdress.toString() == `/update/${id}` ||
+      PortAdress.toString() == `/detail/${id}` ? (
+        <StBtn
+          background="#da3237"
+          color="white"
           onClick={() => {
             navigate(-1);
           }}
         >
           이전화면
-        </HeaderNavigateBTN>
-      ) : PortAdress.toString() == '/' ? (
-        <HeaderNavigateBTN
+        </StBtn>
+      ) : (
+        <StBtn
+          background="#da3237"
+          color="white"
           onClick={() => {
-            navigate('/post');
+            navigate("/post");
           }}
         >
           글쓰기
-        </HeaderNavigateBTN>
-      ) : null}
+        </StBtn>
+      )}
     </HeaderWrap>
   );
 }
