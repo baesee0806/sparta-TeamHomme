@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 const OPTIONS = [
@@ -28,6 +29,8 @@ export default function Post() {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [category, setCategory] = useState("");
+
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -47,11 +50,13 @@ export default function Post() {
       title: password,
       contents: contents,
       category: category,
+      time: new Date(),
     };
 
     try {
-      await axios.post("http://localhost:3001/item", item);
+      await axios.post("http://localhost:3010/item", item);
       alert("추가 성공");
+      navigate(`/detail/${id}`);
     } catch (error) {
       console.log(error, "error");
     }
