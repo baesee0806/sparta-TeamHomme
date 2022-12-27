@@ -133,6 +133,14 @@
       "category": "Redux",
       "writer": "한재창",
       "password": "11"
+    },
+    {
+      "id": "443add7b-b27b-4756-a0ae-dacbb710bbd2",
+      "writer": "갓재창",
+      "password": "1234",
+      "title": "1234",
+      "contents": "저는 리액트의 신입니다.",
+      "category": "React"
     }
   ]
 }

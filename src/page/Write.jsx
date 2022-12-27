@@ -1,5 +1,5 @@
-import React from "react";
-import Post from "../component/body/maincontent/Post";
+import React from 'react';
+import Post from '../component/post/Post';
 
 export default function Write() {
   return <Post />;
