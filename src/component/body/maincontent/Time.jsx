@@ -2,11 +2,12 @@ import React from "react";
 import { TimeSpan } from "../../../styledComponenet/mainContent";
 
 let now = new Date();
-let writeDay = new Date("2022-12-21T00:00:00");
+let writeDay = new Date(Date.now());
 
 let difference = now.getTime() - writeDay.getTime();
 difference = Math.trunc(difference / 1000);
-
+console.log(new Date());
+console.log(Date.now());
 let ResultTime;
 
 const seconds = 1;
